@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+}
+
+canvas {
+    width: 100vh;    /* Make width equal to viewport height for square */
+    height: 100vh;   /* Fill viewport height */
+    background-color: #000;
+}
