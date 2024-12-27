@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="aboutstyle.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen flex items-center justify-center relative font-['JetBrains_Mono']">
+    <div class="bg-pattern"></div>
+    <div class="gradient-overlay"></div>
+    <div id="app">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto bg-[#161b22]/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-[#30363d]">
+                <div class="content-wrapper">
+                    <div class="p-8">
+                        <div class="profile-header mb-6">
+                            <img :src="profile.image" class="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-[#30363d]" alt="Profile Picture">
+                            <h1 class="text-3xl font-bold text-center text-[#c9d1d9]">{{ profile.name }}</h1>
+                            <p class="text-center text-[#8b949e]">{{ profile.title }}</p>
+                        </div>
+                        <div class="about-section space-y-4">
+                            <h2 class="text-2xl font-semibold text-[#c9d1d9]">About Me</h2>
+                            <p class="text-[#8b949e]">{{ profile.about }}</p>
+                            <div class="skills-section">
+                                <h3 class="text-xl font-semibold text-[#c9d1d9] mb-2">Skills</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span v-for="skill in profile.skills" 
+                                          class="px-3 py-1 bg-[#21262d] text-[#58a6ff] rounded-full text-sm border border-[#30363d]">
+                                        {{ skill }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="projects-section mt-6 pt-6 border-t border-[#30363d]">
+                                <h3 class="text-xl font-semibold text-[#c9d1d9] mb-4">Projects</h3>
+                                <div class="grid gap-4">
+                                    <div v-for="project in profile.projects" 
+                                         class="p-4 bg-[#21262d]/50 rounded-lg border border-[#30363d] hover:bg-[#21262d] transition-colors group">
+                                        <div class="flex justify-between items-start mb-2">
+                                            <h4 class="text-[#c9d1d9] font-semibold">
+                                                <a :href="project.link" 
+                                                   target="_blank" 
+                                                   class="hover:text-[#58a6ff] transition-colors inline-flex items-center gap-2">
+                                                    {{ project.name }}
+                                                    <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M10 6v2H5v11h11v-5h2v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6zm11-3v8h-2V6.413l-7.793 7.794-1.414-1.414L17.585 5H13V3h8z"/>
+                                                    </svg>
+                                                </a>
+                                            </h4>
+                                            <a :href="'https://github.com/' + project.github" 
+                                               target="_blank"
+                                               class="text-[#58a6ff] hover:text-[#58a6ff]/80 transition-colors">
+                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <p class="text-[#8b949e] text-sm mb-3">{{ project.description }}</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span v-for="tech in project.tech" 
+                                                  class="px-2 py-1 text-xs bg-[#30363d]/50 text-[#58a6ff] rounded-full">
+                                                {{ tech }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-section mt-6 pt-6 border-t border-[#30363d]">
+                                <h3 class="text-xl font-semibold text-[#c9d1d9] mb-4">Contact Me</h3>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-[#58a6ff]" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+                                        </svg>
+                                        <span class="text-[#8b949e]">{{ profile.contacts.email }}</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-[#58a6ff]" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/>
+                                        </svg>
+                                        <span class="text-[#8b949e]">{{ profile.contacts.discord }}</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-[#58a6ff]" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                        </svg>
+                                        <a href="https://github.com/{{ profile.contacts.github }}" 
+                                           target="_blank" 
+                                           class="text-[#8b949e] hover:text-[#58a6ff] transition-colors">
+                                            {{ profile.contacts.github }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="content.js"></script>
+</body>
+</html>

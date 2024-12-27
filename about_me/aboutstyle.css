@@ -1,0 +1,74 @@
+.profile-header img {
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.profile-header img:hover {
+    transform: scale(1.05);
+}
+
+.skills-section span {
+    transition: all 0.2s ease;
+}
+
+.skills-section span:hover {
+    background-color: #30363d;
+    color: #58a6ff;
+    transform: translateY(-2px);
+}
+
+.about-section {
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes backgroundScroll {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.bg-pattern {
+  width: 100%;
+  height: 200vh; /* doubled the height */
+  position: fixed;
+  top: 0;
+  left: 0;
+  --s: 200px; /* control the size */
+  --c1: #1d1d1d;
+  --c2: #4e4f51;
+  --c3: #3c3c3c;
+
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 180deg
+      )
+      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg
+    );
+  background-size: var(--s) calc(var(--s) * 0.577);
+  z-index: -2; /* Changed from -1 to -2 */
+  animation: backgroundScroll 40s linear infinite; /* increased from 20s to 40s */
+  will-change: transform;
+}
+
+.gradient-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh; /* Made taller for more visible effect */
+    background: linear-gradient(to top, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Remove or comment out the .content-wrapper and .content-wrapper::after styles */
