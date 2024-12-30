@@ -26,7 +26,7 @@ createApp({
                         name: 'ItzSubz Body Pillow Shop',
                         description: 'sigma body pillow',
                         tech: ['just normal html'],
-                        github: 'milkyV2/milkyv2.github.io/shop',
+                        github: 'milkyV2/milkyv2.github.io/tree/main/shop',
                         link: 'https://milkyv2.github.io/shop'
                     },
                 ]
