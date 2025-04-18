@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="public/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iron Vanilla Tierlist</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      @font-face {
+        font-family: 'SearchFont';
+        src: url('public/fonts/search.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'TableFont';
+        src: url('public/fonts/table.otf') format('opentype');
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div class="main-content">
+      <div class="header">
+        <div class="header-search-group">
+          <input id="search-input" type="text" placeholder="Search player..." />
+          <span id="error-message"></span>
+        </div>
+        <div class="header-buttons">
+          <a id="discord-btn" class="header-btn" href="https://discord.gg/TM4mq5Qzcw" target="_blank" rel="noopener">
+            <img src="public/discord.svg" alt="Discord" style="height: 24px; filter: brightness(0) invert(1);" />
+            Discord
+          </a>
+          <button id="info-btn" class="header-btn" onclick="window.showKitInfo()">
+            <img src="public/info.svg" alt="Info" style="height: 24px; filter: brightness(0) invert(1);" />
+            Info
+          </button>
+        </div>
+      </div>
+      <div id="app"></div>
+    </div>
+    <a id="github-btn" href="https://github.com/milkyV2" target="_blank" rel="noopener">
+      <img src="public/github.svg" alt="GitHub" style="height: 40px; filter: brightness(0) invert(1);" />
+    </a>
+    <script src="main.js"></script>
+  </body>
+</html>
