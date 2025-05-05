@@ -1,5 +1,8 @@
 [
+  { "name": "Thiefed", "tier": 1, "region": "NA" },
+  { "name": "Basehunt", "tier": 0, "region": "NA" },
   { "name": "Valkyrena", "tier": 0, "region": "NA" },
+  { "name": "Goingshoe125490", "tier": 0, "region": "NA" },
   { "name": "Demltra", "tier": 0, "region": "NA" },
   { "name": "Elixna", "tier": 0, "region": "NA" }
 ]
